@@ -10,7 +10,7 @@ export default function App() {
   }
 
   const addGoalHandler = () => {
-    setCourseGoals(courseGoals => [...courseGoals, enteredGoal])
+    setCourseGoals(courseGoals => [...courseGoals, { key: Math.random().toString(), value: enteredGoal }])
   }
 
   return (
@@ -29,7 +29,7 @@ export default function App() {
         data={courseGoals}
         renderItem={itemData => (
           <View style={styles.listItem}>
-            <Text>{itemData.item}</Text>
+            <Text>{itemData.item.value}+{itemData.item.key}</Text>
           </View>
         )} />
     </View>
