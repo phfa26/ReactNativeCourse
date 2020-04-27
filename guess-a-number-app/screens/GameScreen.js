@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { View, Text, StyleSheet, Button, Alert } from 'react-native';
 
 import NumberContainer from '../components/NumberContainer'
@@ -23,6 +23,10 @@ const GameScreen = (props) => {
             Alert.alert("Don't lie!", 'You know that it is wrong!', [{ text: 'oops, sorry!', style: 'cancel' }]);
             return;
         }
+        if (direction === 'lower') {
+            generateRandomBetween()
+        }
+
     }
 
     return (
