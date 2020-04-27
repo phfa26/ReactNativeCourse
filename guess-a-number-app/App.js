@@ -8,7 +8,7 @@ import GameScreen from './screens/GameScreen'
 export default function App() {
   const [userNumber, setUserNumber] = useState()
 
-  const startGameHandler = (selectedNumber) => {
+  const startGameHandler = selectedNumber => {
     setUserNumber(selectedNumber)
   }
 
