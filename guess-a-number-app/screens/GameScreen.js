@@ -1,8 +1,11 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { View, Text, StyleSheet, Button, Alert } from 'react-native';
+import { View, StyleSheet, Button, Alert } from 'react-native';
+import { Ionicons } from '@expo/vector-icons'
 
 import NumberContainer from '../components/NumberContainer'
 import Card from '../components/Card'
+import TitleText from '../components/TitleText'
+import MainButton from '../components/MainButton'
 
 const generateRandomBetween = (min, max, exclude) => {
     min = Math.ceil(min)
@@ -49,17 +52,24 @@ const GameScreen = (props) => {
 
     return (
         <View style={styles.screen}>
-            <Text>
+            <TitleText>
                 Opponent's guess
-            </Text>
+            </TitleText>
             <NumberContainer>{currentGuess}</NumberContainer>
-            <Card style={styles.buttonContainer}>
-                <Button title='Lower' onPress={nextGuessHandler.bind(this, 'lower')} />
-                <Button title='Greater' onPress={nextGuessHandler.bind(this, 'greater')} />
+            <Card style={styles.buttonsGroup}>
+                <View style={styles.buttonContainer}>
+                    <MainButton onPress={nextGuessHandler.bind(this, 'lower')} >
+                        <Ionicons name='md-remove' size={24} color='white' />
+                    </MainButton>
+                    <MainButton onPress={nextGuessHandler.bind(this, 'greater')} >
+                        <Ionicons name='md-add' size={24} color='white' />
+                    </MainButton>
+                </View>
+                <MainButton onPress={props.onCancel} style={styles.restartButton} >
+                    <Ionicons name='md-refresh' size={24} color='white' />
+                </MainButton>
             </Card>
-            <Card style={styles.buttonContainer}>
-                <Button title='Restart' onPress={props.onCancel} />
-            </Card>
+
         </View>
     )
 }
@@ -74,8 +84,16 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-around',
         marginTop: 20,
-        width: 300,
+        marginBottom: 30,
+        width: 400,
         maxWidth: '80%'
+    },
+    buttonsGroup: {
+        alignItems: 'center'
+    },
+    restartButton: {
+        alignItems: 'center',
+        justifyContent: 'center'
     }
 })
 
