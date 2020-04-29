@@ -54,11 +54,11 @@ const GameScreen = (props) => {
             </Text>
             <NumberContainer>{currentGuess}</NumberContainer>
             <Card style={styles.buttonContainer}>
-                <Button title='LOWER' onPress={nextGuessHandler.bind(this, 'lower')} />
-                <Button title='GREATER' onPress={nextGuessHandler.bind(this, 'greater')} />
+                <Button title='Lower' onPress={nextGuessHandler.bind(this, 'lower')} />
+                <Button title='Greater' onPress={nextGuessHandler.bind(this, 'greater')} />
             </Card>
             <Card style={styles.buttonContainer}>
-                <Button title='CANCEL' onPress={props.onCancel} />
+                <Button title='Restart' onPress={props.onCancel} />
             </Card>
         </View>
     )
