@@ -1,16 +1,19 @@
 import React, { useState } from 'react';
-import { Text, StyleSheet, View, Button, TouchableWithoutFeedback, Keyboard, Alert } from 'react-native';
+import { StyleSheet, View, Button, TouchableWithoutFeedback, Keyboard, Alert } from 'react-native';
 
-import Card from '../components/Card'
-import Input from '../components/Input'
-import NumberContainer from '../components/NumberContainer'
-import Colors from '../constants/colors'
+import Card from '../components/Card';
+import Input from '../components/Input';
+import NumberContainer from '../components/NumberContainer';
+import MainButton from '../components/MainButton'
+import Colors from '../constants/colors';
+import BodyText from '../components/BodyText';
+import TitleText from '../components/TitleText';
 
 const StartGameScreen = (props) => {
 
-    const [enteredValue, setEnteredValue] = useState('')
-    const [confirmed, setConfirmed] = useState(false)
-    const [selectedNumber, setSelectednumber] = useState()
+    const [enteredValue, setEnteredValue] = useState('');
+    const [confirmed, setConfirmed] = useState(false);
+    const [selectedNumber, setSelectednumber] = useState();
 
 
 
@@ -19,19 +22,19 @@ const StartGameScreen = (props) => {
     }
 
     const resetInputHandler = () => {
-        setEnteredValue('')
-        setConfirmed(false)
+        setEnteredValue('');
+        setConfirmed(false);
     }
 
     const confirmInputHandler = () => {
         const chosenNumber = parseInt(enteredValue);
         if (isNaN(chosenNumber) || chosenNumber <= 0 || chosenNumber > 99) {
-            Alert.alert('Invalid number.', 'Number has to be between 1 and 99.', [{ text: 'Ok', style: 'destructive', onPress: resetInputHandler }])
-            return
+            Alert.alert('Invalid number.', 'Number has to be between 1 and 99.', [{ text: 'Ok', style: 'destructive', onPress: resetInputHandler }]);
+            return;
         }
-        setConfirmed(true)
-        setSelectednumber(chosenNumber)
-        setEnteredValue('')
+        setConfirmed(true);
+        setSelectednumber(chosenNumber);
+        setEnteredValue('');
         Keyboard.dismiss();
 
     }
@@ -40,10 +43,10 @@ const StartGameScreen = (props) => {
     if (confirmed) {
         confirmedOutput = (
             <Card style={styles.summaryContainer}>
-                <Text>You selected</Text>
+                <BodyText>You selected</BodyText>
                 <NumberContainer>{selectedNumber}</NumberContainer>
-                <Button title='Start game!' onPress={() => { props.onStartGame(selectedNumber) }} />
-            </Card>)
+                <MainButton onPress={() => { props.onStartGame(selectedNumber) }}>Start game!</MainButton>
+            </Card>);
     }
 
     return (
@@ -51,9 +54,9 @@ const StartGameScreen = (props) => {
             Keyboard.dismiss();
         }}>
             <View style={styles.screen}>
-                <Text style={styles.title}>Start a New Game!</Text>
+                <TitleText style={styles.title}>Start a New Game!</TitleText>
                 <Card style={styles.inputContainer}>
-                    <Text>Select a Number</Text>
+                    <BodyText>Select a Number</BodyText>
                     <Input
                         style={styles.input}
                         blurOnSubmitgg
