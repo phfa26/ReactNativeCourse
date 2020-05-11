@@ -93,8 +93,10 @@ const styles = StyleSheet.create({
         marginVertical: 10
     },
     inputContainer: {
-        width: 300,
-        maxWidth: '80%',
+        width: '80%',
+        maxWidth: '95%',
+        // maxWidth: '80%',
+        minWidth: 300,
         alignItems: 'center'
     },
     buttonContainer: {
