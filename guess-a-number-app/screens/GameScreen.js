@@ -130,7 +130,7 @@ const styles = StyleSheet.create({
     },
     listContainer: {
         flex: 1,
-        width: '80%'
+        width: Dimensions.get('window').width > 350 ? '80%' : '90%'
     },
     list: {
         width: 300,
