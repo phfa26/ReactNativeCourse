@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { View, StyleSheet, ScrollView, FlatList, Alert } from 'react-native';
+import { View, StyleSheet, ScrollView, FlatList, Alert, Dimensions } from 'react-native';
 import { Ionicons } from '@expo/vector-icons'
 
 import NumberContainer from '../components/NumberContainer'
@@ -116,8 +116,8 @@ const styles = StyleSheet.create({
     buttonContainer: {
         flexDirection: 'row',
         justifyContent: 'space-around',
-        marginTop: 20,
-        marginBottom: 30,
+        marginTop: Dimensions.get('window').height > 600 ? 20 : 10,
+        marginBottom: Dimensions.get('window').height > 600 ? 20 : 10,
         width: 400,
         maxWidth: '80%'
     },
