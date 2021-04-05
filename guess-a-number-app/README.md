@@ -28,7 +28,7 @@ Game rules:
 
 Screenshots:
 
-![Screenshot 1](/Screenshots/Screenshot1.png)
+![Screenshot 1](./Screenshots/Screenshot1.png)
 
 ---
 
